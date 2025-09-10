@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 from bonds.models import Bond, BondPrice
+from .forms import BondForm
 
 
 # Create your views here.
@@ -17,17 +18,7 @@ class HomeView(TemplateView):
 
 class CreateBondView(CreateView):
     model = Bond
-    fields = [
-        'name',
-        'ISIN',
-        'issue_date',
-        'maturity_date',
-        'coupon_rate',
-        'coupon_frequency',
-        'quantity',
-        'issue_price',
-        'is_active',
-    ]
+    form_class = BondForm
     template_name = 'bonds/create_bond.html'
     success_url = '/bonds/'
 
