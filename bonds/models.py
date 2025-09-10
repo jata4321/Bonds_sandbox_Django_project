@@ -13,6 +13,7 @@ class Bond(models.Model):
     maturity_date = models.DateField()
     coupon_rate = models.DecimalField(max_digits=5, decimal_places=3)
     quantity = models.IntegerField()
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -20,6 +21,11 @@ class Bond(models.Model):
     def clean(self):
         if self.issue_date >= self.maturity_date:
             raise ValidationError('Issue date must be earlier than maturity date.')
+
+    def deactivate(self):
+        if self.maturity_date < timezone.now().date():
+            self.is_active = False
+            self.save()
 
 
 class BondPrice(models.Model):
