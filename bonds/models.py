@@ -1,19 +1,21 @@
+import dateutil.utils
 from django.db import models
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 import QuantLib as ql
+from datetime import date
 
 # Create your models here.
 class Bond(models.Model):
 
     ISIN = models.CharField(max_length=12)
     name = models.CharField(max_length=100)
-    issue_price = models.DecimalField(max_digits=10, decimal_places=4)
-    issue_date = models.DateField(default=timezone.now)
+    issue_price = models.DecimalField(max_digits=10, decimal_places=4, default=100)
+    issue_date = models.DateField(default=date.today)
     maturity_date = models.DateField()
     coupon_rate = models.DecimalField(max_digits=5, decimal_places=3)
     coupon_frequency = models.SmallIntegerField(default=1)
-    quantity = models.IntegerField()
+    redemption = models.IntegerField()
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -24,7 +26,7 @@ class Bond(models.Model):
             raise ValidationError('Issue date must be earlier than maturity date.')
 
     def deactivate(self):
-        if self.maturity_date < timezone.now().date():
+        if self.maturity_date < date.today():
             self.is_active = False
             self.save()
 

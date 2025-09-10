@@ -20,13 +20,17 @@ class CreateBondView(CreateView):
     fields = [
         'name',
         'ISIN',
+        'issue_date',
         'maturity_date',
         'coupon_rate',
         'coupon_frequency',
         'quantity',
+        'issue_price',
         'is_active',
     ]
     template_name = 'bonds/create_bond.html'
+    success_url = '/bonds/'
+
 
 class UpdateBondView(UpdateView):
     model = Bond
