@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'bonds/_navbar.html' %}
+
+<div class="display-1 text-center text-primary height-vh-50">
+    <p>Hello from Bonds</p>
+    <p>Title: {{ title }}</p>
+    <p>New text: {{ new_data }}</p>
+</div>
+<div class="row display-4 text-center">
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Accusantium animi cumque dicta dolore dolorem ex harum impedit,
+        laboriosam laborum libero minima neque nihil, obcaecati perspiciatis
+        quibusdam reiciendis repellat sit voluptates.
+    </p>
+</div>
+<div class="row">
+    <div class="row text-center align-items-center justify-content-center mx-auto">
+    <div class="card col-3 mx-2">
+        <p>Card</p>
+    </div>
+    <div class="card col-3 mx-2">
+        <p>Card</p>
+    </div>
+    <div class="card col-3 mx-2">
+        <p>Card</p>
+    </div>
+    </div>
+</div>
+{% endblock %}
