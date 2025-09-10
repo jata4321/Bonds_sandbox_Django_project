@@ -1,4 +1,5 @@
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from bonds.models import Bond, BondPrice
 
 
 # Create your views here.
@@ -13,3 +14,35 @@ class HomeView(TemplateView):
 
     def get_queryset(self):
         return
+
+class CreateBondView(CreateView):
+    model = Bond
+    fields = ['name',
+              'ISIN',
+              'maturity_date',
+              'coupon_rate',
+              'coupon_frequency',
+              'quantity',
+              'is_active']
+    template_name = 'bonds/create_bond.html'
+
+class UpdateBondView(UpdateView):
+    model = Bond
+
+class BondListView(ListView):
+    model = Bond
+    object_name = 'bonds'
+
+    def get_queryset(self, active=True):
+        return Bond.objects.filter(is_active=active)
+
+class BondDetailView(DetailView):
+    model = Bond
+    object_name = 'bond'
+
+    def get_queryset(self, active=True):
+        return Bond.objects.filter(is_active=active)
+
+class BondPriceCreateView(CreateView):
+    model = BondPrice
+    fields = ['name', 'price', 'date']

@@ -12,6 +12,7 @@ class Bond(models.Model):
     issue_date = models.DateField(default=timezone.now)
     maturity_date = models.DateField()
     coupon_rate = models.DecimalField(max_digits=5, decimal_places=3)
+    coupon_frequency = models.SmallIntegerField(default=1)
     quantity = models.IntegerField()
     is_active = models.BooleanField(default=True)
 

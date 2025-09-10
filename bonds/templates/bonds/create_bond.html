@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% include 'bonds/_navbar.html' %}
+
+{% block content %}
+<div class="display-1 text-center text-primary height-vh-50">
+    <p>Hello from Bonds</p>
+</div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
