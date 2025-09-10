@@ -17,13 +17,15 @@ class HomeView(TemplateView):
 
 class CreateBondView(CreateView):
     model = Bond
-    fields = ['name',
-              'ISIN',
-              'maturity_date',
-              'coupon_rate',
-              'coupon_frequency',
-              'quantity',
-              'is_active']
+    fields = [
+        'name',
+        'ISIN',
+        'maturity_date',
+        'coupon_rate',
+        'coupon_frequency',
+        'quantity',
+        'is_active',
+    ]
     template_name = 'bonds/create_bond.html'
 
 class UpdateBondView(UpdateView):
