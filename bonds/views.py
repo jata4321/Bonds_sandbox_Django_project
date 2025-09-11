@@ -38,22 +38,18 @@ class BondListView(ListView):
 class BondDetailView(DetailView):
     model = Bond
     object_name = 'bond'
+    template_name = 'bonds/detail_bond.html'
 
-    def get_queryset(self, active=True):
-        return Bond.objects.filter(is_active=active)
+    def get_queryset(self):
+        return Bond.objects.filter(is_active=True, pk=self.kwargs.get('pk'))
 
 class AddBondPriceView(CreateView):
     model = BondPrice
     form_class = BondPriceForm
     template_name = 'bonds/add_bond_price.html'
 
-    def get_initial(self):
-        initial = super().get_initial()
-        initial['bond'] = self.kwargs.get('pk')
-        return initial
-
     def get_success_url(self):
-        return reverse_lazy('bonds:list_bond_prices', kwargs={'pk': self.object.get('pk')})
+        return reverse_lazy('bonds:list_bond_prices', kwargs={'pk': self.object.bond.pk})
 
 
 class BondPriceListView(ListView):
