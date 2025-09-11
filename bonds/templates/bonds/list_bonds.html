@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {{ bonds }}
+        <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Maturity Date</th>
+            <th scope="col">Is Active</th>
+        </tr>
+        </thead>
+        {% for obj in bonds %}
+        <tr>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.maturity_date }}</td>
+            <td>{{ obj.is_active }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+{% endblock %}

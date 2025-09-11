@@ -9,3 +9,11 @@ class BondForm(forms.ModelForm):
             'maturity_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'issue_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
         }
+
+class BondPriceForm(forms.ModelForm):
+    class Meta:
+        model = BondPrice
+        fields = '__all__'
+        widgets = {
+            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+        }

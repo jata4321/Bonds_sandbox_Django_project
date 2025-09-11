@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
 
 {% include 'bonds/_navbar.html' %}
 
@@ -12,9 +12,9 @@
 <div class="display-1 text-center text-primary">
     <p>Hello from Bonds</p>
 </div>
-<div class="container mt-6">
+<div class="container col-md-6 mt-6 bg-light p-4 rounded">
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-10">
             <form method="post" class="mt-3">
                 {% csrf_token %}
                 {{ form|crispy }}

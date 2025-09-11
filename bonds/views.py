@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.urls import reverse_lazy
 from bonds.models import Bond, BondPrice
-from .forms import BondForm
+from .forms import BondForm, BondPriceForm
 
 
 # Create your views here.
@@ -28,10 +29,11 @@ class UpdateBondView(UpdateView):
 
 class BondListView(ListView):
     model = Bond
-    object_name = 'bonds'
+    context_object_name = 'bonds'
+    template_name = 'bonds/list_bonds.html'
 
-    def get_queryset(self, active=True):
-        return Bond.objects.filter(is_active=active)
+    def get_queryset(self):
+        return Bond.objects.filter(is_active=True)
 
 class BondDetailView(DetailView):
     model = Bond
@@ -40,6 +42,30 @@ class BondDetailView(DetailView):
     def get_queryset(self, active=True):
         return Bond.objects.filter(is_active=active)
 
-class BondPriceCreateView(CreateView):
+class AddBondPriceView(CreateView):
     model = BondPrice
-    fields = ['name', 'price', 'date']
+    form_class = BondPriceForm
+    template_name = 'bonds/add_bond_price.html'
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['bond'] = self.kwargs.get('pk')
+        return initial
+
+    def get_success_url(self):
+        return reverse_lazy('bonds:list_bond_prices', kwargs={'pk': self.object.get('pk')})
+
+
+class BondPriceListView(ListView):
+    model = BondPrice
+    context_object_name = 'bond_prices'
+    template_name = 'bonds/list_bond_prices.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['bond'] = Bond.objects.get(pk=self.kwargs.get('pk'))
+        return context
+
+    def get_queryset(self):
+        bond_pk = self.kwargs.get('pk')
+        return BondPrice.objects.filter(bond_id=bond_pk)
