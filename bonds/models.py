@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django import forms
 import QuantLib as ql
 from datetime import date
@@ -13,7 +14,13 @@ class Bond(models.Model):
     issue_date = models.DateField(default=date.today)
     maturity_date = models.DateField()
     coupon_rate = models.DecimalField(max_digits=5, decimal_places=3)
-    coupon_frequency = models.SmallIntegerField(default=1)
+    coupon_frequency = models.SmallIntegerField(
+        default=1,
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(12)
+        ]
+    )
     redemption = models.IntegerField()
     is_active = models.BooleanField(default=True)
 

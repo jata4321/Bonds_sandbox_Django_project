@@ -2,5 +2,10 @@
 {% load static %}
 
 {% block content %}
-    {{ object.name }}, {{ object.ISIN }}
+    {{ object.name }}, {{ object.ISIN }}, {{ bond.maturity_date }}
+<div class="row">
+    {% for obj in bond %}
+        <p>obj</p>
+    {% endfor %}
+</div>
 {% endblock %}
