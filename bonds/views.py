@@ -38,7 +38,7 @@ class BondListView(ListView):
 
 class BondDetailView(DetailView):
     model = Bond
-    object_name = 'bond'
+    context_object_name = 'bond'
     template_name = 'bonds/detail_bond.html'
 
     def get_queryset(self):

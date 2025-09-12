@@ -2,10 +2,35 @@
 {% load static %}
 
 {% block content %}
-    {{ object.name }}, {{ object.ISIN }}, {{ bond.maturity_date }}
 <div class="row">
-    {% for obj in bond %}
-        <p>obj</p>
-    {% endfor %}
+    <h1 class="display-4 text-primary">Bond Detail</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>ISIN</th>
+            <th>Is Active</th>
+            <th>Issue_date</th>
+            <th>Maturity_date</th>
+            <th>Issue Price</th>
+            <th>Coupon Rate</th>
+            <th>Coupon Frequency</th>
+            <th>Redemption</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ bond.name }}</td>
+            <td>{{ bond.ISIN }}</td>
+            <td>{{ bond.is_active }}</td>
+            <td>{{ bond.issue_date }}</td>
+            <td>{{ bond.maturity_date }}</td>
+            <td>{{ bond.issue_price }}</td>
+            <td>{{ bond.coupon_rate }}</td>
+            <td>{{ bond.coupon_frequency }}</td>
+            <td>{{ bond.redemption }}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 {% endblock %}
