@@ -2,13 +2,17 @@
 {% load static %}
 
 {% block content %}
-    {{ bonds }}
         <table class="table">
         <thead>
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Maturity Date</th>
             <th scope="col">Is Active</th>
+            <th scope="col">Add Price</th>
+            <th scope="col">View Prices</th>
+            <th scope="col">View</th>
+            <th scope="col">Action</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         {% for obj in bonds %}
@@ -16,6 +20,11 @@
             <td>{{ obj.name }}</td>
             <td>{{ obj.maturity_date }}</td>
             <td>{{ obj.is_active }}</td>
+            <td><a href="{% url 'bonds:add_bond_price' %}" class="btn btn-success">Add Price</a></td>
+            <td><a href="{% url 'bonds:list_bond_prices' pk=obj.pk %}" class="btn btn-success">View</a></td>
+            <td><a href="{% url 'bonds:detail_bond' pk=obj.pk %}" class="btn btn-primary">Detail</a></td>
+            <td><a href="{% url 'bonds:update_bond' pk=obj.pk %}" class="btn btn-warning">Update</a></td>
+            <td><a href="{% url 'bonds:delete_bond' pk=obj.pk %}" class="btn btn-danger">Delete</a></td>
         </tr>
         {% endfor %}
         </table>

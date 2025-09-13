@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from bonds.models import Bond, BondPrice
 from .forms import BondForm, BondPriceForm
@@ -27,11 +27,18 @@ class CreateBondView(CreateView):
 
 class UpdateBondView(UpdateView):
     model = Bond
+    form_class = BondForm
+    template_name = 'bonds/bond_update.html'
+    success_url = '/bonds/'
+
+class DeleteBondView(DeleteView):
+    model = Bond
+    success_url = '/bonds/'
 
 class BondListView(ListView):
     model = Bond
-    context_object_name = 'bonds'
     template_name = 'bonds/list_bonds.html'
+    context_object_name = 'bonds'
 
     def get_queryset(self):
         return Bond.objects.filter(is_active=True)

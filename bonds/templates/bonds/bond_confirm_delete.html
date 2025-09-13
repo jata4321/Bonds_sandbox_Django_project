@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>{{ object.name }}</p>
+    <p>{{ object.ISIN }}</p>
+    {% for attr in object.keys %}
+        <p>{{ attr }}</p>
+    {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}
