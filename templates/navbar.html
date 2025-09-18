@@ -1,0 +1,79 @@
+<!-- Navbar: jasne tło, 4 dropdowny z poleceniami (linki do akcji), marka po lewej, Login po prawej -->
+<nav class="navbar navbar-expand-lg navbar-light bg-primary-subtle rounded-2 mb-4">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold text-primary" href="{% url 'bonds:home' %}">BondCal</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Przełącz nawigację">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Sekcja 1 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown1" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Sekcja 1
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown1">
+            <li><a class="dropdown-item" href="/actions/sekcja1/akcja1/">Akcja 1</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja1/akcja2/">Akcja 2</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja1/akcja3/">Akcja 3</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja1/akcja4/">Akcja 4</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja1/akcja5/">Akcja 5</a></li>
+          </ul>
+        </li>
+
+        <!-- Sekcja 2 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown2" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Sekcja 2
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown2">
+            <li><a class="dropdown-item" href="/actions/sekcja2/akcja1/">Akcja 1</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja2/akcja2/">Akcja 2</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja2/akcja3/">Akcja 3</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja2/akcja4/">Akcja 4</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja2/akcja5/">Akcja 5</a></li>
+          </ul>
+        </li>
+
+        <!-- Sekcja 3 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown3" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Sekcja 3
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown3">
+            <li><a class="dropdown-item" href="/actions/sekcja3/akcja1/">Akcja 1</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja3/akcja2/">Akcja 2</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja3/akcja3/">Akcja 3</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja3/akcja4/">Akcja 4</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja3/akcja5/">Akcja 5</a></li>
+          </ul>
+        </li>
+
+        <!-- Sekcja 4 -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown4" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">
+            Sekcja 4
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdown4">
+            <li><a class="dropdown-item" href="/actions/sekcja4/akcja1/">Akcja 1</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja4/akcja2/">Akcja 2</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja4/akcja3/">Akcja 3</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja4/akcja4/">Akcja 4</a></li>
+            <li><a class="dropdown-item" href="/actions/sekcja4/akcja5/">Akcja 5</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="d-flex">
+        <a class="btn btn-outline-success" href="/login/">Login</a>
+      </div>
+    </div>
+  </div>
+</nav>

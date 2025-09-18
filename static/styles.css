@@ -1,4 +1,7 @@
 body {
     background-color: #f0f0f0;
-    padding: 40px;
+}
+
+.main-container {
+    margin: auto 5rem;
 }

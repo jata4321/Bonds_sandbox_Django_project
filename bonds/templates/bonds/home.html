@@ -2,13 +2,12 @@
 
 {% block content %}
 
-{% include 'bonds/_navbar.html' %}
-
 <div class="display-1 text-center text-primary height-vh-50">
     <p>Hello from Bonds</p>
     <p>Title: {{ title }}</p>
     <p>New text: {{ new_data }}</p>
 </div>
+
 <div class="row display-4 text-center">
     <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -17,16 +16,28 @@
         quibusdam reiciendis repellat sit voluptates.
     </p>
 </div>
-<div class="row">
+<div class="row my-4">
     <div class="row text-center align-items-center justify-content-center mx-auto">
-    <div class="card col-3 mx-2">
-        <p>Card</p>
+    <div class="card col-3 mx-4">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'bonds:create_bond' %}">Create bond</a></h5>
+            <div class="border-bottom mb-3"></div>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eos in inventore maxime natus nihil nostrum quasi ratione vero vitae. A consectetur minus molestias nesciunt nostrum numquam, quibusdam sit voluptatem.</p>
+        </div>
     </div>
-    <div class="card col-3 mx-2">
-        <p>Card</p>
+    <div class="card col-3 mx-4">
+        <div class="card-body">
+            <h5 class="card-title"><a class='link' href="{% url 'bonds:list_bonds' %}">List Bonds</a></h5>
+            <div class="border-bottom mb-3"></div>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eos in inventore maxime natus nihil nostrum quasi ratione vero vitae. A consectetur minus molestias nesciunt nostrum numquam, quibusdam sit voluptatem.</p>
+        </div>
     </div>
-    <div class="card col-3 mx-2">
-        <p>Card</p>
+    <div class="card col-3 mx-4">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'bonds:list_bonds' %}">Edit bond</a></h5>
+            <div class="border-bottom mb-3"></div>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eos in inventore maxime natus nihil nostrum quasi ratione vero vitae. A consectetur minus molestias nesciunt nostrum numquam, quibusdam sit voluptatem.</p>
+        </div>
     </div>
     </div>
 </div>
