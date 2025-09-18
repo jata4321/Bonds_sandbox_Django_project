@@ -12,14 +12,20 @@
     <title>{% block title %}Bonds: {% endblock %}</title>
     
 </head>
-<body class="bg-light hero-section bg-hero-1">
+<body class="bg-light">
 
 {% include 'navbar.html' %}
 
-<section class="main-container">
-    {% block content %}
-    {% endblock %}
-</section>
+<div class="container-fluid py-4">
+    <section class="main-container">
+        {% block content %}
+        {% endblock %}
+        <p class="fs-4 p-5 mt-5 text-center hero-section bg-hero-7 rounded-3 shadow">
+            {% lorem 75 w %}
+        </p>
+    </section>
+</div>
+
 
 {% include 'footer.html' %}
 
