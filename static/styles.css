@@ -5,3 +5,22 @@ body {
 .main-container {
     margin: auto 5rem;
 }
+
+/* Sekcja hero – wspólne ustawienia tła */
+.hero-section {
+    min-height: 60vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+
+/* Konkretne tła do wyboru – dopasuj nazwę pliku do wgranych obrazów */
+.bg-hero-1 { background-image: linear-gradient(rgba(255, 255, 255, 0.99), rgba(255, 255, 255, 0.03)), url("/static/img/steven-lelham-atSaEOeE8Nk-unsplash.jpg"); }
+.bg-hero-2 { background-image: linear-gradient(rgba(255, 255, 255, 0.99), rgba(255, 255, 255, 0.03)), url("/static/img/mono-s-uRV5mVIyk-unsplash.jpg"); }
+.bg-hero-3 { background: linear-gradient(rgba(255, 255, 255, 0.99), rgba(255, 255, 255, 0.03)), url("/static/img/boliviainteligente-unsplash.jpg"); }
+.bg-hero-4 {background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.05)), url("/static/img/bp-miller-unsplash.jpg");}
+.bg-hero-5 {background-image: linear-gradient(rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.10)), url("/static/img/casey-horner-RmoWqDCqN2E-unsplash.jpg");}
+.bg-hero-6 {background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.15)), url("/static/img/jean-philippe-delberghe-75xPHEQBmvA-unsplash.jpg");}
+.bg-hero-7 {background-image: linear-gradient(rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.20)), url("/static/img/milad-fakurian-E8Ufcyxz514-unsplash.jpg");}

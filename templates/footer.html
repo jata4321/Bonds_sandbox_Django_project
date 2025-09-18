@@ -3,13 +3,14 @@
     <div class="row gy-3 align-items-center">
       <div class="col-12 col-md-6">
         <div class="small">
-          © 2023–{% now "Y" %} Your Company. All rights reserved.
-          <br>
-          Created: {{ site_created_at|date:"Y-m-d" }}{% if not site_created_at %}2025-01-01{% endif %} · Location: {{ site_city|default:"Warsaw" }}, {{ site_country|default:"Poland" }}
+            Created: {{ site_created_at|date:"Y-m-d" }}{% if not site_created_at %}2025-01-01{% endif %} · Location: {{ site_city|default:"Warsaw" }}, {{ site_country|default:"Poland" }}<br>
+            Photo by <a href="https://unsplash.com/@fakurian?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Milad Fakurian</a> on <a href="https://unsplash.com/photos/blue-orange-and-yellow-wallpaper-E8Ufcyxz514?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
         </div>
       </div>
       <div class="col-12 col-md-6 text-md-end">
         <div class="small">
+            © 2025–{% now "Y" %} Private Company. All rights reserved.<br>
           App version: {{ app_version|default:"1.0.0" }} · Last updated: {{ last_updated|date:"Y-m-d" }}
         </div>
       </div>
