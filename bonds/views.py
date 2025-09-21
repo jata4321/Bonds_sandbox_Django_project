@@ -2,6 +2,7 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView,
 from django.urls import reverse_lazy
 from bonds.models import Bond, BondPrice
 from .forms import BondForm, BondPriceForm
+from .calculations import create_fixed_bond
 
 
 # Create your views here.
@@ -48,6 +49,13 @@ class BondDetailView(DetailView):
     context_object_name = 'bond'
     template_name = 'bonds/detail_bond.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        the_bond = Bond.objects.get(pk=3)
+        bond_calculations = create_fixed_bond(the_bond)
+        context['ql_bond'] = bond_calculations
+        return context
+
     def get_queryset(self):
         return Bond.objects.filter(is_active=True, pk=self.kwargs.get('pk'))
 
@@ -67,7 +75,6 @@ class BondPriceListView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['bond'] = Bond.objects.get(pk=self.kwargs.get('pk'))
         return context
 
     def get_queryset(self):
