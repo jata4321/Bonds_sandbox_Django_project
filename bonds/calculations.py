@@ -56,3 +56,4 @@ def describe_day(today_date: ql.Date):
         'today_weekday': today_date.weekday()
     }
     return context
+
