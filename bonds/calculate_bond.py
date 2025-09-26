@@ -1,8 +1,7 @@
 import QuantLib as ql
-from playhouse.sqlite_udf import duration
 
 # Date Parameters
-eval_date = ql.Date(22, 9, 2025)
+eval_date = ql.Date(26, 9, 2025)
 today_date = ql.Date.todaysDate()
 
 ql.Settings.evaluationDate = eval_date
