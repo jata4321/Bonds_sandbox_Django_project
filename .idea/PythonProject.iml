@@ -17,7 +17,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/.venv1" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.12 virtualenv at C:\Users\ThinkPad-L440\PycharmProjects\Bonds_sandbox_Django_project\.venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.12 (Bonds_sandbox_Django_project)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
