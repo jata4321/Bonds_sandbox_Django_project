@@ -45,6 +45,22 @@ class BondListView(ListView):
         return Bond.objects.filter(is_active=True)
 
 class BondDetailView(DetailView):
+    """
+    View for displaying bond details.
+
+    The BondDetailView class is designed to display the details of a specific
+    bond by inheriting from Django's built-in DetailView. This view
+    fetches the bond data and calculates additional related details
+    to display as part of the context.
+
+    :ivar model: The model associated with this view, which is Bond.
+    :type model: type
+    :ivar context_object_name: The key used in the context to refer to the object,
+        which is 'bond' in this case.
+    :type context_object_name: str
+    :ivar template_name: The path to the template used for rendering the bond details view.
+    :type template_name: str
+    """
     model = Bond
     context_object_name = 'bond'
     template_name = 'bonds/detail_bond.html'
@@ -69,14 +85,52 @@ class AddBondPriceView(CreateView):
 
 
 class BondPriceListView(ListView):
+    """
+    Represents a list view specifically for displaying bond prices.
+
+    This class provides functionality to display a list of bond prices
+    associated with a specific bond. It customizes the queryset and allows
+    the use of a specific template and context variable name.
+
+    :ivar model: The model that the view will be interacting with, which is
+        BondPrice.
+    :type model: Model
+    :ivar context_object_name: The name of the context object used for
+        rendering in the template, set to "bond_prices".
+    :type context_object_name: str
+    :ivar template_name: The name of the template used for rendering the
+        list view.
+    :type template_name: str
+    """
     model = BondPrice
     context_object_name = 'bond_prices'
     template_name = 'bonds/list_bond_prices.html'
 
     def get_context_data(self, *args, **kwargs):
+        """
+        Get the context data for the view.
+
+        This method retrieves context data used in templates by invoking the parent class's
+        get_context_data method and optionally modifies or extends the context.
+
+        :param args: Positional arguments passed to the method.
+        :type args: tuple
+        :param kwargs: Keyword arguments passed to the method.
+        :type kwargs: dict
+        :return: Context data dictionary that can be used by the view.
+        :rtype: dict
+        """
         context = super().get_context_data(**kwargs)
         return context
 
     def get_queryset(self):
+        """
+        Filters and retrieves a queryset of BondPrice objects based on the bond ID
+        provided in the URL parameters.
+
+        :param self: The instance of the current view or object calling this method.
+        :return: A queryset of BondPrice objects filtered by the provided bond ID.
+        :rtype: QuerySet
+        """
         bond_pk = self.kwargs.get('pk')
         return BondPrice.objects.filter(bond_id=bond_pk)
