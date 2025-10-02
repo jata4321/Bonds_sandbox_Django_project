@@ -1,7 +1,7 @@
 import QuantLib as ql
 
 # Date Parameters
-evaluation_date = ql.Date(26, 9, 2025)
+evaluation_date = ql.Date(29, 9, 2025)
 today_date = ql.Date.todaysDate()
 
 ql.Settings.evaluationDate = evaluation_date
@@ -61,7 +61,7 @@ print('Clean price:', bond.cleanPrice())
 print('Dirty price:', bond.dirtyPrice())
 print('Accrued Int:', bond.accruedAmount())
 
-market_clean_price = 98.37384
+market_clean_price = 98.348
 bond_price = ql.BondPrice(market_clean_price, ql.BondPrice.Clean)
 
 ytm = ql.BondFunctions.bondYield(
@@ -101,3 +101,7 @@ convexity = ql.BondFunctions.convexity(
     frequency,
 )
 print('Convexity: ', convexity)
+
+dv01 = mod_duration * bond.dirtyPrice() / 100.0
+print('DV01: ', dv01)
+
